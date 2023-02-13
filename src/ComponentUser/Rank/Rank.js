@@ -25,7 +25,7 @@ export default function Rank() {
   const [level, setLevel] = useState([]);
 
   const getQuest = () => {
-    Axios.get("http://localhost:8080/quests")
+    Axios.get("https://flru-learning.herokuapp.com/quests")
       .then((res) => {
         setQuest(res.data);
       })
@@ -35,7 +35,7 @@ export default function Rank() {
   };
 
   const getLevel = () => {
-    Axios.get("http://localhost:8080/levels")
+    Axios.get("https://flru-learning.herokuapp.com/levels")
       .then((res) => {
         setLevel(res.data);
       })

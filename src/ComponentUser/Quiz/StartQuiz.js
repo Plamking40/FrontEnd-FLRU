@@ -42,7 +42,7 @@ export default function StartQuiz() {
       });
 
       let reqOptions = {
-        url: "http://localhost:8080/QuizHistory/create-QuizHistory",
+        url: "https://flru-learning.herokuapp.com/QuizHistory/create-QuizHistory",
         method: "POST",
         headers: headersList,
         data: bodyContent,

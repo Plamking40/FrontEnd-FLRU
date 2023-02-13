@@ -23,7 +23,7 @@ export default function Profile() {
     };
 
     let reqOptions = {
-      url: "http://localhost:8080/users/profile",
+      url: "https://flru-learning.herokuapp.com/users/profile",
       method: "GET",
       headers: headersList,
       data: {},
@@ -41,9 +41,12 @@ export default function Profile() {
   const [ProfileID, setProfileID] = useState([]);
 
   const getProfileUser = async () => {
-    await Axios.post(`http://localhost:8080/users/login-profile`, {
-      user_id: key.user_id,
-    }).then((response) => {
+    await Axios.post(
+      `https://flru-learning.herokuapp.com/users/login-profile`,
+      {
+        user_id: key.user_id,
+      }
+    ).then((response) => {
       setProfileID(response.data);
       setFirstname(response.data.firstname);
       setLastname(response.data.lastname);
@@ -55,9 +58,12 @@ export default function Profile() {
   const [historyData, setHistoryData] = useState([]);
 
   const getHistory = async () => {
-    await Axios.post(`http://localhost:8080/QuizHistory/get-History`, {
-      user_id: key?.user_id,
-    }).then((response) => {
+    await Axios.post(
+      `https://flru-learning.herokuapp.com/QuizHistory/get-History`,
+      {
+        user_id: key?.user_id,
+      }
+    ).then((response) => {
       setHistoryData(response.data);
     });
   };
@@ -79,13 +85,16 @@ export default function Profile() {
   const handleEdit = async () => {
     console.log(firstname, lastname, email, tel);
 
-    await Axios.put(`http://localhost:8080/users/edit-users-profile`, {
-      user_id: ProfileID._id,
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      tel: tel,
-    }).then(async (result) => {
+    await Axios.put(
+      `https://flru-learning.herokuapp.com/users/edit-users-profile`,
+      {
+        user_id: ProfileID._id,
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        tel: tel,
+      }
+    ).then(async (result) => {
       if (result.data.status === 200) {
         await swal({
           icon: "success",
@@ -102,7 +111,7 @@ export default function Profile() {
         });
       }
 
-      // await Axios.put(`http://localhost:8080/users/edit-user-profile`, {
+      // await Axios.put(`https://flru-learning.herokuapp.com/users/edit-user-profile`, {
       //   firstname: firstname,
       //   lastname: lastname,
       //   email: email,
