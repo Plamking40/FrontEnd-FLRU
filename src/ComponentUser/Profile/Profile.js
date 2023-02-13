@@ -1,9 +1,10 @@
 import "./profile.css";
 import Axios from "axios";
 import { useEffect, useState } from "react";
+import swal from "sweetalert";
 
 import { useNavigate } from "react-router-dom";
-import { Form, Row, Col, Table } from "react-bootstrap";
+import { Form, Row, Col, Table, Button } from "react-bootstrap";
 
 export default function Profile() {
   const [profileName, setProfileName] = useState([]);
@@ -41,9 +42,13 @@ export default function Profile() {
 
   const getProfileUser = async () => {
     await Axios.post(`http://localhost:8080/users/login-profile`, {
-      user_id: "B6316532",
+      user_id: key.user_id,
     }).then((response) => {
       setProfileID(response.data);
+      setFirstname(response.data.firstname);
+      setLastname(response.data.lastname);
+      setEmail(response.data.email);
+      setTel(response.data.tel);
     });
   };
 
@@ -51,7 +56,7 @@ export default function Profile() {
 
   const getHistory = async () => {
     await Axios.post(`http://localhost:8080/QuizHistory/get-History`, {
-      user_id: "B6316532",
+      user_id: key?.user_id,
     }).then((response) => {
       setHistoryData(response.data);
     });
@@ -65,6 +70,48 @@ export default function Profile() {
     getHistory();
     console.log(historyData);
   }, []);
+
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [tel, setTel] = useState("");
+
+  const handleEdit = async () => {
+    console.log(firstname, lastname, email, tel);
+
+    await Axios.put(`http://localhost:8080/users/edit-users-profile`, {
+      user_id: ProfileID._id,
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      tel: tel,
+    }).then(async (result) => {
+      if (result.data.status === 200) {
+        await swal({
+          icon: "success",
+          title: `UPDATE `,
+          text: `Thank you, ${firstname}  ${lastname} for Update Profile.`,
+        });
+        window.location.reload();
+      } else {
+        await swal({
+          icon: "warning",
+          title: `UPDATE Error`,
+          text: `Please try again later.`,
+          button: false,
+        });
+      }
+
+      // await Axios.put(`http://localhost:8080/users/edit-user-profile`, {
+      //   firstname: firstname,
+      //   lastname: lastname,
+      //   email: email,
+      //   tel: tel,
+      // }).then((response) => {
+      //   setHistoryData(response.data);
+      // });
+    });
+  };
 
   return (
     <div className="Profile">
@@ -96,6 +143,7 @@ export default function Profile() {
                         type="text"
                         placeholder="Enter Firstname"
                         defaultValue={ProfileID?.firstname}
+                        onChange={(e) => setFirstname(e.target.value)}
                       />
                     </Form.Group>
 
@@ -105,6 +153,7 @@ export default function Profile() {
                         type="text"
                         placeholder="Enter Lastname"
                         defaultValue={ProfileID?.lastname}
+                        onChange={(e) => setLastname(e.target.value)}
                       />
                     </Form.Group>
                   </Row>
@@ -115,6 +164,7 @@ export default function Profile() {
                         type="email"
                         placeholder="Enter Email"
                         defaultValue={ProfileID?.email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </Form.Group>
 
@@ -124,10 +174,16 @@ export default function Profile() {
                         type="tel"
                         placeholder="Enter Tel"
                         defaultValue={ProfileID?.tel}
+                        onChange={(e) => setTel(e.target.value)}
                       />
                     </Form.Group>
                   </Row>
                 </Form>
+                <div className="BtnEditProfile">
+                  <Button variant="warning" onClick={handleEdit}>
+                    Edit Profile
+                  </Button>
+                </div>
               </div>
               <div className="History">
                 <div className="Head-History">

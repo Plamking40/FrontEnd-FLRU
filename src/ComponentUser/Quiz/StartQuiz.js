@@ -165,7 +165,7 @@ export default function StartQuiz() {
                     </h1>
                   </div>
                   <div className="TypeScore">
-                    <p>Listening</p>
+                    <p>Listenin</p>
                     <ProgressBar
                       now={scoreListening}
                       label={scoreListening}

@@ -78,7 +78,17 @@ export default function QuizUser() {
                   >
                     Start Quiz
                   </Button>
-                  <Button variant="warning" className="fa fa-plu m-1" href="#">
+                  <Button
+                    variant="warning"
+                    className="fa fa-plu m-1"
+                    href="#"
+                    onClick={() => {
+                      swal({
+                        icon: "warning",
+                        title: `ปิดปรับปรุง`,
+                      });
+                    }}
+                  >
                     Continue
                   </Button>
                 </div>

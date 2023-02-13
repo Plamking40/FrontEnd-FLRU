@@ -132,16 +132,13 @@ export default function TeamMembers() {
 
   const handleEditSubmit = async (id) => {
     console.log(id);
-    await Axios.put(
-      `https://flru-learning.herokuapp.com/users/update-users/${id}`,
-      {
-        firstname: firstname,
-        lastname: lastname,
-        status: status,
-        email: email,
-        tel: tel,
-      }
-    ).then(async (result) => {
+    await Axios.put(`http://localhost:8080/users/update-users/${id}`, {
+      firstname: firstname,
+      lastname: lastname,
+      status: status,
+      email: email,
+      tel: tel,
+    }).then(async (result) => {
       if (result.data.status === 200) {
         await swal({
           icon: "success",

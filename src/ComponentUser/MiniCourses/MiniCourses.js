@@ -1,7 +1,8 @@
 import React from "react";
 import "./minicourses.css";
 import { Link } from "react-router-dom";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Form, FloatingLabel } from "react-bootstrap";
+import Calendar from "react-calendar";
 
 export default function Minicourses() {
   return (
@@ -9,18 +10,28 @@ export default function Minicourses() {
       <div className="container-Minicourses">
         <div className="MinicoursesTable">
           <div className="Minicourses-r">
+            <Calendar className="p-2 mb-2" />
             <Button variant="warning">Show how to use</Button>
+            <p>RECOMMEMD</p>
+            <iframe
+              width="250"
+              src="https://www.youtube.com/embed/QOI7_QgQSBs?autoplay=1&mute=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+              allowfullscreen
+            ></iframe>
           </div>
           <div className="Minicourses-l">
             <div className="TableShowData">
-              <Table hover striped="row">
+              <Table hover striped="row" bordered>
                 <thead>
                   <tr>
                     <th>DAY</th>
                     <th>09.00-10.00 AM</th>
                     <th>10.00-11.00 AM</th>
                     <th>11.00-12.00 AM</th>
-                    <th></th>
+                    <th id="th4"></th>
                     <th>01.00-02.00 PM</th>
                     <th>02.00-03.00 PM</th>
                     <th>03.00-04.00 PM</th>
@@ -29,48 +40,87 @@ export default function Minicourses() {
                 <tbody>
                   <tr>
                     <td>MON</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td></td>
+                    <td>
+                      <h5>Speaking</h5>
+                      <p>Room:1</p>
+                    </td>
+                    <td></td>
+                    <td id="th4"></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                      <h5>TOEIC</h5>
+                      <p>Room:1</p>
+                    </td>
                   </tr>
                   <tr>
                     <td>TUE</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <td>
+                      <h5>CEFR</h5>
+                      <p>Room:1</p>
+                    </td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                      <h5>TOEIC</h5>
+                      <p>Room:1</p>
+                    </td>
+                    <td id="th4"></td>
+                    <td>
+                      <h5>Speaking</h5>
+                      <p>Room:1</p>
+                    </td>
+                    <td>
+                      <h5>CEFR</h5>
+                      <p>Room:1</p>
+                    </td>
                     <td></td>
                   </tr>
                   <tr>
                     <td>WED</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
                     <td></td>
                     <td></td>
+                    <td>
+                      <h5>TOEIC</h5>
+                      <p>Room:1</p>
+                    </td>
+                    <td id="th4"></td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td>
+                      <h5>Speaking</h5>
+                      <p>Room:1</p>
+                    </td>
                   </tr>
                   <tr>
                     <td>THU</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
                     <td></td>
+                    <td>
+                      <h5>CEFR</h5>
+                      <p>Room:1</p>
+                    </td>
+                    <td>
+                      <h5>Speaking</h5>
+                      <p>Room:1</p>
+                    </td>
+                    <td id="th4"></td>
+                    <td>
+                      <h5>TOEIC</h5>
+                      <p>Room:1</p>
+                    </td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                      <h5>CEFR</h5>
+                      <p>Room:1</p>
+                    </td>
                   </tr>
                   <tr>
                     <td>FRI</td>
                     {Array.from({ length: 7 }).map((_, index) => (
-                      <td key={index}>Table cell {index}</td>
+                      <td key={index} id={`th${index + 1}`}>
+                        <h5>CEFR</h5>
+                        <p>Room:{index}</p>
+                      </td>
                     ))}
                   </tr>
                 </tbody>
@@ -78,8 +128,13 @@ export default function Minicourses() {
             </div>
             <div className="TableShowCourses">
               <div className="FindMiniCourse">
-                <p>Find Mini Course</p>
-                <input type="text" />
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Find Mini Course"
+                  className="mx-5 my-3"
+                >
+                  <Form.Control type="text" placeholder="name@example.com" />
+                </FloatingLabel>
               </div>
             </div>
           </div>

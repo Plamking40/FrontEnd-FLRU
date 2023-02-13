@@ -6,6 +6,13 @@ import Reward4 from "../../Img/Reward/Reward4.png";
 import Reward5 from "../../Img/Reward/Reward5.png";
 import Reward6 from "../../Img/Reward/Reward6.png";
 import Reward7 from "../../Img/Reward/Reward7.png";
+import Badges1 from "../../Img/badges/badges-01.png";
+import Badges2 from "../../Img/badges/badges-02.png";
+import Badges3 from "../../Img/badges/badges-03.png";
+import Badges4 from "../../Img/badges/badges-04.png";
+import Badges5 from "../../Img/badges/badges-05.png";
+import Badges6 from "../../Img/badges/badges-06.png";
+
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Boy from "../../Img/Icons/boy.jpg";
 import Axios from "axios";
@@ -53,31 +60,27 @@ export default function Rank() {
   const DataReward = [
     {
       id: 1,
-      img: `${Reward1}`,
+      img: `${Badges1}`,
     },
     {
       id: 2,
-      img: `${Reward2}`,
+      img: `${Badges2}`,
     },
     {
       id: 3,
-      img: `${Reward3}`,
+      img: `${Badges3}`,
     },
     {
       id: 4,
-      img: `${Reward4}`,
+      img: `${Badges4}`,
     },
     {
       id: 5,
-      img: `${Reward5}`,
+      img: `${Badges5}`,
     },
     {
       id: 6,
-      img: `${Reward6}`,
-    },
-    {
-      id: 7,
-      img: `${Reward7}`,
+      img: `${Badges6}`,
     },
   ];
 

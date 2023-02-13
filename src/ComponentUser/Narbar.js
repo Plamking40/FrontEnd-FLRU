@@ -54,12 +54,18 @@ export default function Narbar() {
   const [membership, setMembership] = useState("no");
 
   const loginUser = () => {
-    // console.log(userid + "  " + password);
     Axios.post("https://flru-learning.herokuapp.com/users/login-user", {
       user_id: userid,
       password: password,
-    })
-      .then(async (res) => {
+    }).then(async (res) => {
+      if (!res.data.token) {
+        await swal({
+          icon: "warning",
+          title: `SIGN UP Error`,
+          text: `${res.data.mes}`,
+          button: false,
+        });
+      } else {
         window.localStorage.setItem("token", "Bearer " + res.data.token);
 
         let headersList = {
@@ -115,44 +121,52 @@ export default function Narbar() {
             text: `Welcome, Teacher to FLEU Website`,
             button: false,
           });
-        } else {
-          await swal({
-            icon: "warning",
-            title: `SIGN UP Error`,
-            text: `Please confirm the conditions for applying for membership.`,
-            button: false,
-          });
         }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      }
+    });
   };
 
-  const handleSubmitRegister = () => {
-    if (membership === "yes") {
-      Axios.post("https://flru-learning.herokuapp.com/users/create-usersv2", {
-        user_id: userid,
-        password: password,
-        firstname: firstname,
-        lastname: lastname,
-        status: "Student",
-        email: email,
-        tel: tel,
-      }).then((res) => {
-        swal({
-          icon: "success",
-          title: `SIGN UP ${userid}`,
-          text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
-        });
-        setShowRegister(false);
-      });
-    } else {
-      swal({
+  const handleSubmitRegister = async () => {
+    if (!(userid && password && firstname && lastname && email && tel)) {
+      await swal({
         icon: "warning",
         title: `SIGN UP Error`,
-        text: `Please confirm the conditions for applying for membership.`,
+        text: `Please fill in the blanks.`,
+        button: false,
       });
+    } else {
+      if (membership === "yes") {
+        Axios.post("https://flru-learning.herokuapp.com/users/create-usersv2", {
+          user_id: userid,
+          password: password,
+          firstname: firstname,
+          lastname: lastname,
+          status: "Student",
+          email: email,
+          tel: tel,
+        }).then((res) => {
+          if (res.data.mes == "User Already Exist. Please Login") {
+            swal({
+              icon: "warning",
+              title: `Student ID Again`,
+              text: `Please change the StudentID.`,
+            });
+          } else {
+            swal({
+              icon: "success",
+              title: `SIGN UP ${userid}`,
+              text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
+            });
+            setShowRegister(false);
+          }
+        });
+      } else {
+        swal({
+          icon: "warning",
+          title: `SIGN UP Error`,
+          text: `Please confirm the conditions for applying for membership.`,
+        });
+      }
     }
   };
 

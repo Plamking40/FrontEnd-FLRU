@@ -31,7 +31,6 @@
   border: 1px solid rgb(208, 203, 203);
   border-radius: 10px;
   text-align: start;
-  height: 80vh;
 }
 
 .Body-Head-Profiles h2 {
@@ -61,10 +60,20 @@
   font-size: 2rem;
 }
 
+.Body-History {
+  margin: 0.5rem;
+}
+
 .Body-History #tr1 {
   background: rgb(248, 225, 114);
 }
 
 .Body-History tr {
   background: #ffffff;
+}
+
+.BtnEditProfile {
+  display: flex;
+  justify-content: end;
+  margin: 1rem;
 }
