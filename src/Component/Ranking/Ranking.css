@@ -1,0 +1,12 @@
+.RankingContainer {
+  flex: 4;
+  background-color: rgb(193, 221, 241);
+}
+.DataRankList {
+  width: 100%;
+  margin-left: 100px;
+  background-color: white;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+}

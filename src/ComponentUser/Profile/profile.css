@@ -1,0 +1,49 @@
+.Profile {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: rgb(255, 255, 255);
+}
+.container-Profile {
+  margin-top: 90px;
+}
+.ProfileBody {
+  display: flex;
+}
+.Profiles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  border: 1px solid rgb(208, 203, 203);
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+.ProfilesBoard {
+  width: 80%;
+  /* border: 1px solid yellow; */
+}
+
+.Body-Profiles {
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid rgb(208, 203, 203);
+  border-radius: 10px;
+  text-align: start;
+}
+
+.Body-Head-Profiles h2 {
+  color: #0063d3;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.Body-Head-Profiles p {
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.Body-Input {
+  margin: 1rem 2rem;
+}

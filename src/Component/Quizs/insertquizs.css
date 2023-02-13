@@ -1,0 +1,12 @@
+.insertquizsContainer {
+  flex: 4;
+  background-color: rgb(193, 221, 241);
+}
+.inputQuizText {
+  text-align: start;
+  width: 900px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 100px;
+  margin-top: 50px;
+}

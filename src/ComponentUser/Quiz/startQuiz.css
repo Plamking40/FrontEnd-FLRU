@@ -1,0 +1,267 @@
+.StartQuiz {
+  max-width: 960px;
+}
+
+.contalner-StartQuiz {
+  margin-top: 100px;
+}
+
+.StartQuiz-con {
+  align-items: center;
+  justify-content: center;
+  height: 480px;
+  background-color: fff;
+}
+
+.StartQuizBody {
+  border-radius: 10px;
+}
+
+.BtnAnswer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 100px;
+  padding: 1rem;
+}
+
+.BtnAnswer label {
+  margin-bottom: 1rem;
+}
+
+.BtnAnswer-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.BtnAnswer button:hover {
+  color: rgb(184, 183, 183);
+  background: #39393a;
+}
+
+.Quiz-Part {
+  border: 2px solid rgb(157, 157, 157);
+  border-radius: 16px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.Quiz-Part #p1 {
+  position: absolute;
+  width: 100%;
+  background-color: #ffd65f;
+  text-align: start;
+  top: 0;
+  padding: 5px 5px 5px 5px;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.Quiz-Part h2 {
+  text-align: start;
+  margin-left: 50px;
+  margin-top: 50px;
+  padding: 5px;
+}
+
+.QuizResult {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 50px;
+}
+
+.QuizResult .QuizResultTitle {
+  text-align: start;
+  color: #0063d3;
+}
+
+.BtnTypeChart {
+  display: flex;
+}
+
+.BtnTypeChart Button {
+  margin: 10px;
+}
+.ViewFull {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ViewAsScore {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  border: 7px solid #0078ff;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+
+.OverallScore {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  border: 7px solid #a8d036;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+
+.TypeScore {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.TypeScore p {
+  text-align: start;
+}
+
+.Suggestion {
+  text-align: start;
+  margin-left: 50px;
+}
+
+.Suggestion h2 {
+  font-weight: 700;
+}
+
+.Suggestion h4 {
+  font-weight: 500;
+}
+
+.Suggestion p {
+  font-size: 16px;
+}
+
+.SuggestionBody {
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.RecommendedCourse {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.RecommendedCourse h2 {
+  text-align: start;
+  font-weight: 700;
+}
+.ViewSchedule {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-left: 40px;
+}
+
+.ViewSchedule {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+.ViewSchedule p {
+  margin: 20px 40px 20px 40px;
+}
+.ViewSchedule .head-color {
+  background-color: #ffd65f;
+  padding: 40px 20px;
+  border-radius: 15px 0px 0px 15px;
+}
+.ViewSchedule img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0px 60px 0px 60px;
+}
+
+.rad-label {
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  padding: 7px 8px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+  background: hsla(0, 0%, 25%, 0.14);
+}
+
+.rad-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.rad-design {
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+  background: linear-gradient(
+    to right bottom,
+    hsl(214, 86%, 55%),
+    hsl(214, 86%, 55%)
+  );
+  position: relative;
+}
+
+.rad-design::before {
+  content: "";
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.rad-input:checked + .rad-design::before {
+  transform: scale(0);
+}
+
+.rad-text {
+  color: hsl(0, 0%, 12%);
+  margin-left: 14px;
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.rad-input:checked ~ .rad-text {
+  color: hsl(221, 96%, 42%);
+}
+
+.NextBtn {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.NextBtn p {
+  margin-right: 50px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: #fff;
+  background: #0078ff;
+}

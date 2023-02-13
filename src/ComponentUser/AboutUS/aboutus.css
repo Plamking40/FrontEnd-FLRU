@@ -1,0 +1,50 @@
+.AllAboutUS {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.container-AboutUS {
+  margin-top: 90px;
+}
+.container-AboutUS p {
+  margin-left: 10px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.content-con {
+  display: flex;
+  justify-content: space-between;
+}
+.content-con:first-child,
+.content-con:last-child {
+  padding: 3rem 0;
+}
+.content-l iframe {
+  margin-left: 10px;
+}
+.content-ll img {
+  width: 25rem;
+  border-radius: 10px;
+  box-shadow: 50px -30px 7px rgba(255, 214, 95, 0.4);
+  margin-right: 10px;
+}
+.content-r {
+  padding: 2rem;
+  text-align: left;
+}
+
+.content-r h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.content-r p {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+iframe {
+  border-radius: 10px;
+}

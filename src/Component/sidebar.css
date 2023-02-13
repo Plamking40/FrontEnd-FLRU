@@ -1,0 +1,62 @@
+.mainSidebarContainer {
+  flex: 0.8;
+  background-color: white;
+  height: 100vh;
+}
+
+.ulContainer {
+  margin-top: 30px;
+}
+
+.liContainer {
+  display: flex;
+  margin-top: 10px;
+}
+
+.menu {
+  display: flex;
+  color: rgb(66, 71, 75); /* เปลี่ยนสีตัวหนักสือ Meun */
+  margin: 25px;
+  font-weight: 1000;
+}
+
+.adminContainer {
+  display: flex;
+  background-color: #0078ff;
+  height: 250px;
+  padding: 60px;
+  letter-spacing: 2px;
+}
+.adminText {
+  font-size: 36px;
+  margin-left: 5px;
+  color: #fff;
+  text-align: start;
+}
+.sidebericons {
+  width: 30px;
+  height: 30px;
+}
+.itemNames {
+  margin-left: 10px;
+  color: rgb(66, 71, 75); /* เปลี่ยนสีตัวหนักสือ Meun-item */
+  font-weight: 600;
+  text-align: center;
+}
+.ScheduledContainer {
+  display: flex;
+  margin-left: 30px;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: rgba(118, 114, 114, 0.199);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.ScheduledTitle {
+  font-size: 14px;
+  color: rgb(66, 71, 75); /* เปลี่ยนสีตัวหนักสือ Events */
+  margin-right: 80px;
+}
+.mainScheduledContaiber {
+  margin-top: 80px;
+}

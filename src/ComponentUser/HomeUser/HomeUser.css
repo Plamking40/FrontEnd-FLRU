@@ -1,0 +1,147 @@
+.HomeUser {
+  margin-top: 90px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.container-title {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.banner-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  left: 20%;
+  bottom: 8%;
+  width: 1200px;
+}
+
+.content-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 500px;
+}
+.content-con:first-child,
+.content-con:last-child {
+  padding: 5rem 0;
+}
+
+.banner-con h2 {
+  font-size: 16px;
+}
+
+.banner-con p {
+  font-size: 12px;
+}
+
+.content-l img {
+  width: 100%;
+  border-radius: 10px;
+}
+.content-r {
+  padding: 2rem;
+  text-align: left;
+}
+.title1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-r img {
+  width: 90%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.title-l {
+  width: 50%;
+  padding: 2rem;
+  text-align: left;
+}
+
+.BG-Services {
+  background: #ffd65f;
+}
+
+.Services-body {
+  height: 550px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ItemServices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.ItemServices img {
+  padding: 20px 20px 10px 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  height: 350px;
+  background: #4f545a;
+}
+
+.footer h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+.footer p,
+.footer span,
+.footer label {
+  font-size: 20px;
+  font-weight: 400;
+  color: whitesmoke;
+  margin-top: 20px;
+}
+
+.footer-title {
+  width: 40%;
+  text-align: start;
+  margin: 50px;
+  margin-left: 100px;
+}
+
+.footer-links {
+  width: 20%;
+  text-align: start;
+  margin: 50px;
+}
+
+.footer-contact {
+  width: 20%;
+  text-align: start;
+  margin: 50px;
+}
+
+@media screen and (max-width: 480px) {
+  .content-con {
+    flex-direction: column;
+  }
+  .content-con:nth-child(2) .content-r {
+    order: 1;
+  }
+}

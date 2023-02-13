@@ -1,0 +1,39 @@
+.SingInOutContainer1 {
+  flex: 4;
+  background-color: rgb(193, 221, 241);
+}
+
+.BodyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.left-datetime-show {
+  flex: 1;
+  height: 150px;
+  background-color: #ff5f5f;
+  border-radius: 10px;
+  padding: 1rem;
+  color: white;
+}
+
+.right-sign-show {
+  flex: 2;
+  height: 150px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.right-sign-show h3 {
+  font-weight: 700;
+}
+
+.table-data-sign {
+  background: white;
+  border-radius: 10px;
+  padding: 0.5rem;
+  flex: 1;
+}

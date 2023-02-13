@@ -1,0 +1,294 @@
+.mainHomeRightbar {
+    flex: 4;
+    background-color: rgb(193, 221, 241);
+    
+}
+
+.dashboardHerd {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.dashHerdTitle {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2077D8;
+}
+
+.bodyContainer {
+    display: flex;
+    width: 93%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.body-l {
+    flex: 3;
+    background-color: white;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.BarchatContainer {
+    margin-top: 10px;
+    
+}
+
+.DatBarChart {
+    margin-left: 50px;
+    margin-top: 20px;
+
+}
+
+.DayTitle {
+    text-align: start;
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: rgb(79, 79, 79);
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.DayBtnContainer {
+    display: flex;
+    margin-left: 50px;
+}
+
+.DayBtn {
+    margin: 4px;
+    padding: 6px 15px 6px 15px;
+    border: none;
+    border-radius: 16px;
+    background-color: #FFD65F;
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.useronlineContainer {
+    display: flex;
+    margin-top: 20px;
+}
+
+.userOnline {
+    flex: 1;
+}
+
+.userTitle {
+    margin: 5px;
+}
+
+.userNum {
+    margin-top: 3px;
+    font-size: 30px;
+}
+
+.body-r {
+    flex: 1;
+    border-radius: 15px;
+    margin: 10px;
+    
+}
+
+.OngoingCourseContainer {
+    flex: 1;
+    height: 130px;
+    background-color: white;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px
+    
+}
+
+.OngoingCourseHead {
+    text-align: start;
+    padding-top: 10px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    
+}
+
+.nameCourse {
+    display: flex;
+    background-color: #F0F0F0;
+    margin: 5px;
+    margin-top: 0px;
+    border-radius: 0 5px 5px 0;
+}
+
+.nameCourse1 {
+    flex: 1;
+    background-color: red;
+}
+
+.nameCourse2 {
+    flex: 4;
+}
+
+.nameCourse3 {
+    margin: 1px;
+    flex: 2;
+    text-align: start;
+    font-size: 10px;
+}
+
+.calendarContainer {
+    flex: 1;
+    height: 150px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.UserAlltimeContainer {
+    flex: 1;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ItemContainer {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.ItemContainer1 {
+    background-color: rgb(255, 255, 255);
+    width: 390px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.taskProgress {
+    text-align: start;
+    margin-left: 10px;
+    margin-top: 30px;
+    color: rgb(79, 79, 79);
+    font-weight: 600;
+}
+
+.taskCounter {
+    text-align: start;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: -16px;
+    color: #45d87e;
+}
+
+.taskCounter1 {
+    text-align: start;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: -16px;
+    color: #f4b64b;
+}
+
+.taskCounter2 {
+    text-align: start;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: -16px;
+    color: #f77535;
+}
+
+
+.currentmonth1 {
+    text-align: start;
+    margin-left: 10px;
+    margin-top: -23px;
+    color: rgb(79, 79, 79);
+    font-weight: 600;
+}
+
+.barchartContainer {
+    margin-left: 90px;
+    margin-top: 40px;
+}
+
+.subitemContainer {
+    margin-top: 29px;
+}
+
+.subitemContainer1 {
+    margin-top: 19px;
+}
+
+.MiddleTaskChart {
+    width: 92%;
+    background-color: white;
+    margin: auto;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 7px;
+}
+
+.TaskCretedvsCompletad {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.TaskContainer {
+    display: flex;
+    width: 93%;
+    justify-content: center;
+    margin: auto;
+    /* margin-top: 10px; */
+}
+
+.TaskChart {
+    flex: 1.2;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.MonthlyEarning {
+    flex: 4;
+    margin: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+
+.taskContainertext {
+    text-align: start;
+    margin-left: 40px;
+    color: rgb(79, 79, 79);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.teamPerformance {
+    margin-top: -170px;
+    align-items: center;
+    width: 60%;
+    margin-left: 60px;
+    font-size: 13px;
+    color: rgb(79, 79, 79);
+    font-weight: 600;
+}
+
+.WiewDetailsBtn {
+    padding: 6px 10px 6px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #45d87e;
+    color: white;
+    font-weight: 600;
+}

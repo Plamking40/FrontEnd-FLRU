@@ -1,0 +1,141 @@
+.EditQuizsContainer {
+  flex: 4;
+  background-color: rgb(193, 221, 241);
+}
+
+.EnglishSkillQuiz {
+  text-align: start;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.EditAnswersContainer {
+  display: flex;
+}
+
+.LitseningContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 1rem;
+  border-radius: 10px;
+  margin-left: 100px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+}
+
+.LitseningItem {
+  border: 1px solid #939393;
+  border-radius: 15px;
+  margin: 40px;
+  padding: 15px;
+}
+
+.TabQuizs {
+  text-align: start;
+  margin-left: 50px;
+}
+
+.TabAnswers {
+  width: 30%;
+  text-align: start;
+  padding: 2px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin: 10px 4px 4px 70px;
+}
+
+.TabAnswers label {
+  margin-left: 10px;
+}
+
+.EditQuizADDItem {
+  border: 3px dashed #2077d8;
+  margin: 20px;
+  color: #2077d8;
+}
+
+.EditQuizADDItem p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.EditQuizADDItem:hover {
+  margin: 20px;
+  background: #939393;
+  color: #fff;
+  border: 3px dashed #fff;
+}
+
+.BtnCRUDAdd {
+  margin-top: 1rem;
+  height: 40px;
+  width: 180px;
+  padding: 6px 30px 6px 30px;
+  border: 1px solid #0078ff;
+  border-radius: 5px;
+  color: #0078ff;
+  background-color: rgba(212, 232, 255, 0.8);
+  font-weight: 600;
+}
+
+.BtnCRUDSave {
+  margin-top: 1rem;
+  height: 40px;
+  width: 180px;
+  padding: 6px 30px 6px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0078ff;
+  color: white;
+  font-weight: 600;
+}
+
+.BodyEditeQuiz {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 1rem 2rem;
+  padding: 1rem;
+}
+.BodyEditeQuiz h2 {
+  margin: 20px 0;
+  font-size: 2rem;
+  text-align: start;
+}
+
+.TabContainer {
+  width: 20%;
+  margin: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.TabContainerNum {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 5px;
+}
+.QuizNum {
+  padding: 5px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 0.5px solid rgba(0, 0, 0, 0.35);
+}
+
+.QuizNum :hover {
+  color: rgb(77, 211, 77);
+}
+
+.optionsItem {
+  width: 70%;
+}

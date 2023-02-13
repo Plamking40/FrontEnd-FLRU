@@ -1,0 +1,146 @@
+.TeamMembers {
+  flex: 4;
+  background-color: rgb(193, 221, 241);
+}
+.userListEdit {
+  padding: 6px 30px 6px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7f737;
+  color: rgb(135, 131, 131);
+  font-weight: 600;
+}
+
+.userListDelete {
+  padding: 6px 30px 6px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ea4a2a;
+  color: white;
+  font-weight: 600;
+}
+.tableUsers {
+  margin: 5px;
+  padding: 10px;
+  border: 0px solid black;
+}
+
+.UserListHead {
+  display: flex;
+}
+.UserListTitle {
+  margin-left: 100px;
+  font-size: 40px;
+  font-weight: 600;
+  color: #2077d8;
+}
+
+.DataGridUserList {
+  flex: 3.5;
+  margin-left: 100px;
+  background-color: white;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.TabbarCSUD {
+  flex: 0.8;
+  margin: 1rem;
+  border-radius: 10px;
+  background-color: rgba(212, 232, 255, 0.8);
+}
+.CSUDTab {
+  text-align: start;
+  margin-left: 50px;
+  margin-top: 20px;
+  padding: 2px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.CSUDTabADD {
+  margin-top: 1rem;
+  height: 40px;
+  width: 180px;
+  padding: 6px 30px 6px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3ed830;
+  color: white;
+  font-weight: 600;
+}
+.CSUDTabDelete {
+  margin-top: 1rem;
+  height: 40px;
+  width: 180px;
+  padding: 6px 30px 6px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ea4a2a;
+  color: white;
+  font-weight: 600;
+}
+.ExportBtn {
+  margin-top: 1rem;
+  height: 40px;
+  width: 180px;
+  padding: 6px 30px 6px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0078ff;
+  color: white;
+  font-weight: 600;
+}
+
+.TabbarUserList {
+  display: flex;
+  margin-left: 100px;
+}
+.searchInputUserList {
+  width: 25%;
+  border: none;
+  padding: 3px;
+  background-color: rgb(243, 239, 239);
+  border-radius: 20px;
+}
+.TitleUserList {
+  padding: 1px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.BtnUserSearchList {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  height: 40px;
+  width: 100px;
+  padding: 6px 20px 6px 20px;
+  border: none;
+  border-radius: 15px;
+  background-color: #0078ff;
+  color: white;
+  font-weight: 600;
+}
+
+.inputUserText {
+  text-align: start;
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 700px;
+}
+
+.labelUserText {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.labelUserSelect {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 150px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 700px;
+  width: 330px;
+}

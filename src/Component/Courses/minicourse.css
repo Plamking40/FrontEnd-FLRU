@@ -1,0 +1,8 @@
+.miniCourse-container {
+  display: flex;
+  margin-left: 100px;
+  background-color: white;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+}

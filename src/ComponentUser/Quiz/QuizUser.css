@@ -1,0 +1,42 @@
+.QuizUser {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.container-AllQuiz {
+  margin-top: 90px;
+  text-align: start;
+  /* border: 1px solid rgb(157, 157, 157); */
+}
+
+.Emg-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  background-color: fff;
+}
+
+.contentEng-l img {
+  background-size: cover;
+  object-fit: cover;
+  overflow: hidden;
+  width: 460px;
+  height: 415px;
+}
+.QuizFull {
+  text-align: start;
+  margin-left: 50px;
+  /* border: 1px solid rgb(157, 157, 157); */
+}
+
+.QuizFull Button {
+  margin-left: 5px;
+}
+
+.Card-Quiz {
+  width: 13rem;
+  text-align: center;
+  margin-top: 30px;
+  display: inline-block;
+  margin-left: 20px;
+}

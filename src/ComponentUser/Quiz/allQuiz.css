@@ -1,0 +1,19 @@
+.AllQuiz {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.container-AllQuiz {
+  margin-top: 90px;
+}
+.container-AllQuiz .tab-allquiz {
+  margin-left: 50px;
+}
+
+.Card-Quiz img {
+  padding: 20px 20px 10px 20px;
+  width: 100%;
+  height: 100%;
+}
+.Btn-Type {
+  margin-left: 10px;
+}
