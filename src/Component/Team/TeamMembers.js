@@ -93,8 +93,8 @@ export default function TeamMembers() {
   };
 
   const handleADDSubmit = async () => {
-    const dataRegister = [
-      {
+    if (user_id) {
+      Axios.post("https://flru-learning.herokuapp.com/users/create-usersv2", {
         user_id: user_id,
         password: password,
         firstname: firstname,
@@ -102,16 +102,7 @@ export default function TeamMembers() {
         status: status,
         email: email,
         tel: tel,
-      },
-    ];
-
-    console.log(dataRegister);
-
-    if (user_id) {
-      Axios.post(
-        "https://flru-learning.herokuapp.com/users/create-users",
-        dataRegister
-      ).then(async (res) => {
+      }).then(async (res) => {
         await swal({
           icon: "success",
           title: `SIGN UP ${user_id}`,
