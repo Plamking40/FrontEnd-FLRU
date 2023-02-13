@@ -1,13 +1,16 @@
 import "./sidebar.css";
-import Home from ".././Img//Icons/home.png";
-import Teammembers from ".././Img//Icons/Teammembers.png";
-import MonthlyIncome from ".././Img//Icons/monthlyIncome.png";
 import Salary from ".././Img//Icons/Salary.png";
-import Settings from ".././Img//Icons/settings.png";
-import Teammerbers from ".././Img//Icons/Teammembers.png";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import { GoSignIn } from "react-icons/go";
+import { BsUiChecks } from "react-icons/bs";
+import { IoHome } from "react-icons/io5";
+import { FaUsers } from "react-icons/fa";
+import { HiTableCells } from "react-icons/hi2";
+import { ImBooks } from "react-icons/im";
+import { BiBookBookmark } from "react-icons/bi";
+import { MdFormatListNumbered } from "react-icons/md";
 
 export default function Sidebar() {
   const history = useNavigate();
@@ -36,49 +39,50 @@ export default function Sidebar() {
           <h4 className="menu">Main Menu</h4>
           <Link to={"/home"} style={{ textDecoration: "none" }}>
             <li className="liContainer">
-              <img src={`${Home}`} className="sidebericons" alt="" />
+              <IoHome className="sidebericons" />
+
               <p className="itemNames">Dashboard</p>
             </li>
           </Link>
           <Link to={"/team"} style={{ textDecoration: "none" }}>
             <li className="liContainer">
-              <img src={`${Teammembers}`} className="sidebericons" alt="" />
+              <FaUsers className="sidebericons" />
               <p className="itemNames">User Mangement</p>
             </li>
           </Link>
           <Link to={"/Courses"} style={{ textDecoration: "none" }}>
             <li className="liContainer">
-              <img src={`${Teammerbers}`} className="sidebericons" alt="" />
+              <BiBookBookmark className="sidebericons" />
               <p className="itemNames">Courses Mangement</p>
             </li>
           </Link>
           <Link to={"/MiniCourses"} style={{ textDecoration: "none" }}>
             <li className="liContainer">
-              <img src={`${Teammerbers}`} className="sidebericons" alt="" />
+              <HiTableCells className="sidebericons" />
               <p className="itemNames">Mini Courses Table</p>
             </li>
           </Link>
           <Link to={"/Quiz"} style={{ textDecoration: "none" }}>
             <li className="liContainer ">
-              <img src={`${MonthlyIncome}`} className="sidebericons" alt="" />
-              <p className="itemNames">Quiz</p>
+              <ImBooks className="sidebericons" />
+              <p className="itemNames">Quiz Mangement</p>
             </li>
           </Link>
           <Link to={"/Rank"} style={{ textDecoration: "none" }}>
             <li className="liContainer ">
-              <img src={`${Salary}`} className="sidebericons" alt="" />
+              <MdFormatListNumbered className="sidebericons" />
               <p className="itemNames">Ranking</p>
             </li>
           </Link>
           <Link to={"/SingIn_Outs"} style={{ textDecoration: "none" }}>
             <li className="liContainer">
-              <img src={`${Settings}`} className="sidebericons" alt="" />
+              <BsUiChecks className="sidebericons" />
               <p className="itemNames">Sign In/Sign Out </p>
             </li>
           </Link>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <li className="liContainer" onClick={handLogOut}>
-              <img src={`${Settings}`} className="sidebericons" alt="" />
+              <GoSignIn className="sidebericons" />
               <p className="itemNames">Log Out</p>
             </li>
           </Link>

@@ -5,6 +5,9 @@
 }
 
 .ulContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin-top: 30px;
 }
 
@@ -34,8 +37,9 @@
   text-align: start;
 }
 .sidebericons {
-  width: 30px;
-  height: 30px;
+  color: rgb(66, 71, 75);
+  width: 35px;
+  height: 35px;
 }
 .itemNames {
   margin-left: 10px;

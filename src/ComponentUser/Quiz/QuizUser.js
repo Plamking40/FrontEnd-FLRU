@@ -5,6 +5,8 @@ import Axios from "axios";
 import { useParams, Route, Routes } from "react-router-dom";
 import StartQuizs from "./StartQuiz";
 import Quiz from "../../Img/Asset/quiz.png";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 export default function QuizUser() {
   const [question, setQuestion] = useState([]);
@@ -22,16 +24,32 @@ export default function QuizUser() {
   ];
 
   const getQuestion = (id) => {
-    Axios.get(`http://localhost:8080/question/edit-question/${id}`).then(
-      (response) => {
-        setQuestion(response.data);
-      }
-    );
+    Axios.get(
+      `https://flru-learning.herokuapp.com/question/edit-question/${id}`
+    ).then((response) => {
+      setQuestion(response.data);
+    });
   };
+
+  const history = useNavigate();
+
+  const key = JSON.parse(window.localStorage.getItem("UserRole"));
 
   useEffect(() => {
     getQuestion(id);
   }, []);
+
+  const GotoPages = async () => {
+    if (key?.status != "Student") {
+      await swal({
+        icon: "warning",
+        title: `Please LogIn`,
+        text: `Log In to make a quiz.`,
+      });
+    } else {
+      history(`/StartQuizs/${id}`);
+    }
+  };
 
   return (
     <div className="QuizUser">
@@ -56,7 +74,7 @@ export default function QuizUser() {
                   <Button
                     variant="primary"
                     className="fa fa-plu m-1"
-                    href={`/StartQuizs/${id}`}
+                    onClick={() => GotoPages()}
                   >
                     Start Quiz
                   </Button>

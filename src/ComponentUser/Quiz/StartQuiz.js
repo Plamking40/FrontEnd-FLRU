@@ -25,6 +25,11 @@ export default function StartQuiz() {
 
     console.log(datauser?.user_id);
 
+    setCurrentQuestion(nextQuestion);
+    optionslocal.push(selectedValue);
+    window.localStorage.setItem("is_right", JSON.stringify(optionslocal));
+    setSelectedValue("");
+
     if (nextQuestion == question?.questions?.length) {
       let headersList = {
         "Content-Type": "application/json",
@@ -58,10 +63,6 @@ export default function StartQuiz() {
 
       setShowScore(true);
     }
-    setCurrentQuestion(nextQuestion);
-    optionslocal.push(selectedValue);
-    window.localStorage.setItem("is_right", JSON.stringify(optionslocal));
-    setSelectedValue("");
   }
 
   const [question, setQuestion] = useState(null);
@@ -71,25 +72,24 @@ export default function StartQuiz() {
   const { id } = useParams();
 
   const getQuestion = (id) => {
-    Axios.get(`http://localhost:8080/question/StartQuizs/${id}`).then(
-      (response) => {
-        console.log(response.data);
-        setQuestion(response.data);
-      }
-    );
+    Axios.get(
+      `https://flru-learning.herokuapp.com/question/StartQuizs/${id}`
+    ).then((response) => {
+      setQuestion(response.data);
+    });
   };
 
   const getRankType = () => {
-    Axios.get(`http://localhost:8080/rankcompares`).then((response) => {
-      console.log(response.data);
-      setRankType(response.data);
-    });
+    Axios.get(`https://flru-learning.herokuapp.com/rankcompares`).then(
+      (response) => {
+        setRankType(response.data);
+      }
+    );
   };
 
   useEffect(() => {
     getQuestion(id);
     getRankType();
-    console.log(question);
   }, []);
 
   const EngRank = [
@@ -230,13 +230,14 @@ export default function StartQuiz() {
                 </div>
 
                 <div className="Quiz-Part">
+                  <p id="p1">
+                    PART I -{" "}
+                    {question?.questions?.[currentQuestion].type.toUpperCase()}
+                  </p>
                   <h2>
                     {currentQuestion + 1}.
                     {question?.questions?.[currentQuestion].question}
                   </h2>
-                  <p id="p1">
-                    PART I - {question?.questions?.[currentQuestion].type}
-                  </p>
                   <div className="BtnAnswer">
                     {question?.questions?.[currentQuestion].options.map(
                       (item, index) => {

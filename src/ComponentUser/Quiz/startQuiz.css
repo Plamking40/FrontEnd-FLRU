@@ -18,25 +18,12 @@
 }
 
 .BtnAnswer {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: start;
   margin-left: 100px;
   padding: 1rem;
-}
-
-.BtnAnswer label {
-  margin-bottom: 1rem;
-}
-
-.BtnAnswer-input {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  z-index: -1;
 }
 
 .BtnAnswer button:hover {
@@ -47,19 +34,16 @@
 .Quiz-Part {
   border: 2px solid rgb(157, 157, 157);
   border-radius: 16px;
-  height: 60vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
 }
 
 .Quiz-Part #p1 {
-  position: absolute;
   width: 100%;
   background-color: #ffd65f;
   text-align: start;
-  top: 0;
   padding: 5px 5px 5px 5px;
   border-radius: 15px 15px 0px 0px;
 }
@@ -67,7 +51,8 @@
 .Quiz-Part h2 {
   text-align: start;
   margin-left: 50px;
-  margin-top: 50px;
+  margin-top: 20px;
+  margin: 20px 20px 0 50px;
   padding: 5px;
 }
 

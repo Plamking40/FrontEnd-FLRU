@@ -15,19 +15,39 @@
 
 .tabQuizContainer {
   display: flex;
+  margin-top: 20px;
 }
 
 .AddQuizContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
   margin-left: 50px;
   margin-right: 50px;
   height: 250px;
   width: 200px;
   padding: 1rem;
   border-radius: 5%;
-  border: 3px dashed #2077d8;
+  border: 3px dashed green;
+}
+
+.IconAddQuiz {
+  color: green;
+  font-size: 70px;
+}
+
+.AddQuizContainer :hover {
+  color: #939393;
 }
 
 .EditQuizContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
   margin-left: 50px;
   margin-right: 50px;
   height: 250px;
@@ -35,33 +55,28 @@
   padding: 1rem;
   background-color: #ffffff;
   border-radius: 5%;
-  border: 1px solid #000000;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;
 }
 
 .ImgQuizContainer {
-  width: 150px;
-  height: 150px;
+  position: absolute;
+  top: 20px;
+  width: 120px;
+  height: 120px;
 }
 
 .SkillsTitle {
+  position: absolute;
   font-weight: 600;
   font-size: 20px;
   margin: 6px;
+  bottom: 60px;
 }
 
 .BtnHead {
-  flex: 1;
-  margin: 1px;
-  padding-left: 5px;
-  width: 30px;
-  border: none;
-  border-radius: 16px;
-  background-color: rgba(255, 214, 95, 0.5);
-  color: black;
-  font-weight: 600;
-  font-size: 16px;
-  text-align: start;
+  position: absolute;
+  bottom: 10px;
 }
 
 .BtnEditContainer {

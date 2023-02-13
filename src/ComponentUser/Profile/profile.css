@@ -31,6 +31,7 @@
   border: 1px solid rgb(208, 203, 203);
   border-radius: 10px;
   text-align: start;
+  height: 80vh;
 }
 
 .Body-Head-Profiles h2 {
@@ -46,4 +47,24 @@
 
 .Body-Input {
   margin: 1rem 2rem;
+}
+
+.History {
+  border: 2px solid rgb(208, 203, 203);
+  margin: 30px;
+  border-radius: 10px;
+}
+
+.History h2 {
+  color: rgb(251, 212, 17);
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.Body-History #tr1 {
+  background: rgb(248, 225, 114);
+}
+
+.Body-History tr {
+  background: #ffffff;
 }

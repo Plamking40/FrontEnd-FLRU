@@ -7,60 +7,6 @@ import { Button, Form, FloatingLabel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function Insertquizs() {
-  // const [question, setQuestion] = useState();
-  // const [title, setTitle] = useState();
-  // const [type, setType] = useState();
-  // const [score_max, setScore_max] = useState();
-  // const [is_active, setIs_active] = useState();
-  // const [end_time, setEnd_time] = useState();
-  // const [total, setTotal] = useState();
-  // const [content, setContent] = useState();
-
-  // const handleSubmitQuestion = () => {
-  //   const dataQuestion = [
-  //     {
-  //       title: title,
-  //       type: type,
-  //       score_max: score_max,
-  //       is_active: is_active,
-  //       end_time: end_time,
-  //       total: total,
-  //       content: content,
-  //     },
-  //   ];
-
-  //   if (title) {
-  //     Axios.post(
-  //       "http://localhost:8080/Question/create-question",
-  //       dataQuestion
-  //     ).then(async (res) => {
-  //       await swal({
-  //         icon: "success",
-  //         title: `SIGN UP `,
-  //         text: `Thank you, for applying for membership.`,
-  //       });
-  //       console.log(res.data);
-  //       window.location.reload();
-  //     });
-  //   } else {
-  //     swal({
-  //       icon: "warning",
-  //       title: `SIGN UP Error`,
-  //       text: `Please confirm the conditions for applying for membership.`,
-  //     });
-  //   }
-  // };
-
-  // const getQuestion = () => {
-  //   Axios.get("http://localhost:8080/question")
-  //     .then((res) => {
-  //       setQuestion(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   const key = JSON.parse(window.localStorage.getItem("UserRole"));
   const history = useNavigate();
 
@@ -86,7 +32,7 @@ export default function Insertquizs() {
       },
     ];
     Axios.post(
-      "http://localhost:8080/question/create-question",
+      "https://flru-learning.herokuapp.com/question/create-question",
       dataQuestion
     ).then(async (res) => {
       await swal({

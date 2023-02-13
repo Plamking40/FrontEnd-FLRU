@@ -28,9 +28,11 @@ export default function TeamMembers() {
   const [tel, setTel] = useState("");
 
   const getUsers = async () => {
-    await Axios.get("http://localhost:8080/users").then((response) => {
-      setUsers(response.data);
-    });
+    await Axios.get("https://flru-learning.herokuapp.com/users").then(
+      (response) => {
+        setUsers(response.data);
+      }
+    );
   };
 
   const key = JSON.parse(window.localStorage.getItem("UserRole"));
@@ -54,7 +56,7 @@ export default function TeamMembers() {
     }).then(async (willDelete) => {
       if (willDelete) {
         await Axios.delete(
-          `http://localhost:8080/users/delete-users/${id}`
+          `https://flru-learning.herokuapp.com/users/delete-users/${id}`
         ).then(async (res) => {
           await swal(`Your ${userid} has been deleted!`, {
             icon: "success",
@@ -75,18 +77,18 @@ export default function TeamMembers() {
 
   const handleEditClose = () => setShowEdit(false);
   const handleEditShow = (id) => {
-    Axios.get(`http://localhost:8080/users/get-edit-user/${id}`).then(
-      async (res) => {
-        setUsersEdit(res.data);
-        setUser_id(res.data.user_id);
-        setFirstname(res.data.firstname);
-        setLastname(res.data.lastname);
-        setStatus(res.data.status);
-        setEmail(res.data.email);
-        setTel(res.data.tel);
-        console.log(res.data);
-      }
-    );
+    Axios.get(
+      `https://flru-learning.herokuapp.com/users/get-edit-user/${id}`
+    ).then(async (res) => {
+      setUsersEdit(res.data);
+      setUser_id(res.data.user_id);
+      setFirstname(res.data.firstname);
+      setLastname(res.data.lastname);
+      setStatus(res.data.status);
+      setEmail(res.data.email);
+      setTel(res.data.tel);
+      console.log(res.data);
+    });
     setShowEdit(true);
   };
 
@@ -106,18 +108,19 @@ export default function TeamMembers() {
     console.log(dataRegister);
 
     if (user_id) {
-      Axios.post("http://localhost:8080/users/create-users", dataRegister).then(
-        async (res) => {
-          await swal({
-            icon: "success",
-            title: `SIGN UP ${user_id}`,
-            text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
-          });
-          console.log(res.data);
-          setShowADD(false);
-          window.location.reload();
-        }
-      );
+      Axios.post(
+        "https://flru-learning.herokuapp.com/users/create-users",
+        dataRegister
+      ).then(async (res) => {
+        await swal({
+          icon: "success",
+          title: `SIGN UP ${user_id}`,
+          text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
+        });
+        console.log(res.data);
+        setShowADD(false);
+        window.location.reload();
+      });
     } else {
       await swal({
         icon: "warning",
@@ -129,13 +132,16 @@ export default function TeamMembers() {
 
   const handleEditSubmit = async (id) => {
     console.log(id);
-    await Axios.put(`http://localhost:8080/users/update-users/${id}`, {
-      firstname: firstname,
-      lastname: lastname,
-      status: status,
-      email: email,
-      tel: tel,
-    }).then(async (result) => {
+    await Axios.put(
+      `https://flru-learning.herokuapp.com/users/update-users/${id}`,
+      {
+        firstname: firstname,
+        lastname: lastname,
+        status: status,
+        email: email,
+        tel: tel,
+      }
+    ).then(async (result) => {
       if (result.data.status === 200) {
         await swal({
           icon: "success",
@@ -157,7 +163,7 @@ export default function TeamMembers() {
     <div className="TeamMembers">
       <Navbar />
       <div className="UserListHead">
-        <p className="UserListTitle">User list</p>
+        <p className="UserListTitle">User Mangement</p>
       </div>
       <div className="TabbarUserList">
         <p className="TitleUserList">Find</p>

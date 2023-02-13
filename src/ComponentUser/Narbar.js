@@ -26,7 +26,7 @@ export default function Narbar() {
   });
 
   const reqOptions = {
-    url: "localhost:8080/users/profile",
+    url: "https://flru-learning.herokuapp.com/users/profile",
     method: "GET",
     headers: headersList,
     data: bodyContent,
@@ -53,11 +53,9 @@ export default function Narbar() {
   const [tel, setTel] = useState();
   const [membership, setMembership] = useState("no");
 
-  const [status, setStatus] = useState("student");
-
   const loginUser = () => {
     // console.log(userid + "  " + password);
-    Axios.post("http://localhost:8080/users/login-user", {
+    Axios.post("https://flru-learning.herokuapp.com/users/login-user", {
       user_id: userid,
       password: password,
     })
@@ -72,7 +70,7 @@ export default function Narbar() {
         };
 
         let reqOptions = {
-          url: "http://localhost:8080/users/profile",
+          url: "https://flru-learning.herokuapp.com/users/profile",
           method: "GET",
           headers: headersList,
           data: {},
@@ -132,20 +130,8 @@ export default function Narbar() {
   };
 
   const handleSubmitRegister = () => {
-    // const dataRegister = [
-    //   {
-    //     user_id: userid,
-    //     password: password,
-    //     firstname: firstname,
-    //     lastname: lastname,
-    //     status: "Student",
-    //     email: email,
-    //     tel: tel,
-    //   },
-    // ];
-    // console.log(dataRegister);
     if (membership === "yes") {
-      Axios.post("http://localhost:8080/users/create-usersv2", {
+      Axios.post("https://flru-learning.herokuapp.com/users/create-usersv2", {
         user_id: userid,
         password: password,
         firstname: firstname,
@@ -154,7 +140,6 @@ export default function Narbar() {
         email: email,
         tel: tel,
       }).then((res) => {
-        console.log(res.data.token);
         swal({
           icon: "success",
           title: `SIGN UP ${userid}`,

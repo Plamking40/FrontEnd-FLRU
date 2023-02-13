@@ -10,7 +10,7 @@ export default function AllQuiz() {
   const [question, setQuestion] = useState([]);
 
   const getQuestion = () => {
-    Axios.get("http://localhost:8080/question/AllQuiz")
+    Axios.get("https://flru-learning.herokuapp.com/question/AllQuiz")
       .then((res) => {
         setQuestion(res.data);
       })

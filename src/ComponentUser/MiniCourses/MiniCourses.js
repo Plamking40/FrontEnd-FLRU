@@ -1,6 +1,6 @@
 import React from "react";
 import "./minicourses.css";
-<<<<<<< HEAD
+import { Link } from "react-router-dom";
 import { Table, Button } from "react-bootstrap";
 
 export default function Minicourses() {
@@ -87,9 +87,4 @@ export default function Minicourses() {
       </div>
     </div>
   );
-=======
-
-export default function Miniourses() {
-  return <div>MiniCourses</div>;
->>>>>>> 9ad643e296e0594d3b2fcb803e3eb31610e79e80
 }

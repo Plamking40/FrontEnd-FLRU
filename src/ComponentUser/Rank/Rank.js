@@ -42,12 +42,12 @@ export default function Rank() {
   const key = JSON.parse(window.localStorage.getItem("UserRole"));
 
   useEffect(() => {
-    getQuest();
-    getLevel();
-
     if (key?.status != "Student") {
       history("/");
     }
+
+    getQuest();
+    getLevel();
   }, []);
 
   const DataReward = [

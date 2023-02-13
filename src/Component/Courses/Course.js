@@ -30,22 +30,24 @@ export default function Course() {
 
   const handleEditClose = () => setShowEdit(false);
   const handleEditShow = (id) => {
-    Axios.get(`http://localhost:8080/courses/get-edit-courses/${id}`).then(
-      async (res) => {
-        setCourseEdit(res.data);
-        setCourses_id(res.data.courses_id);
-        setCourses_title(res.data.title);
-        setCourses_detail(res.data.detail);
-        setIs_active(res.data.is_active);
-      }
-    );
+    Axios.get(
+      `https://flru-learning.herokuapp.com/courses/get-edit-courses/${id}`
+    ).then(async (res) => {
+      setCourseEdit(res.data);
+      setCourses_id(res.data.courses_id);
+      setCourses_title(res.data.title);
+      setCourses_detail(res.data.detail);
+      setIs_active(res.data.is_active);
+    });
     setShowEdit(true);
   };
 
-  const getUsers = async () => {
-    await Axios.get("http://localhost:8080/courses").then((response) => {
-      setCourse(response.data);
-    });
+  const getCourse = async () => {
+    await Axios.get("https://flru-learning.herokuapp.com/courses").then(
+      (response) => {
+        setCourse(response.data);
+      }
+    );
   };
 
   const key = JSON.parse(window.localStorage.getItem("UserRole"));
@@ -55,7 +57,7 @@ export default function Course() {
     if (key?.status != "Admin") {
       history("/");
     }
-    getUsers();
+    getCourse();
   }, []);
 
   const handleADDSubmit = async () => {
@@ -72,7 +74,7 @@ export default function Course() {
 
     if (courses_id) {
       Axios.post(
-        "http://localhost:8080/courses/create-courses",
+        "https://flru-learning.herokuapp.com/courses/create-courses",
         dataRegister
       ).then(async (res) => {
         await swal({
@@ -102,14 +104,14 @@ export default function Course() {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        Axios.delete(`http://localhost:8080/courses/delete-courses/${id}`).then(
-          async (res) => {
-            await swal(`Your ${title} has been deleted!`, {
-              icon: "success",
-            });
-            window.location.reload();
-          }
-        );
+        Axios.delete(
+          `https://flru-learning.herokuapp.com/courses/delete-courses/${id}`
+        ).then(async (res) => {
+          await swal(`Your ${title} has been deleted!`, {
+            icon: "success",
+          });
+          window.location.reload();
+        });
       } else {
         swal("You Undelete");
       }
@@ -118,12 +120,15 @@ export default function Course() {
 
   const handleEditSubmit = async (id) => {
     console.log(id);
-    Axios.put(`http://localhost:8080/courses/update-courses/${id}`, {
-      courses_id: courses_id,
-      title: courses_title,
-      detail: courses_detail,
-      is_active: true,
-    }).then(async (result) => {
+    Axios.put(
+      `https://flru-learning.herokuapp.com/courses/update-courses/${id}`,
+      {
+        courses_id: courses_id,
+        title: courses_title,
+        detail: courses_detail,
+        is_active: true,
+      }
+    ).then(async (result) => {
       if (result.data.status === 200) {
         await swal({
           icon: "success",

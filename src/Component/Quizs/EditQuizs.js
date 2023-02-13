@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 import "./editquizs.css";
 import Axios from "axios";
 import { useParams } from "react-router-dom";
-import { Form, FloatingLabel } from "react-bootstrap";
+import { Form, FloatingLabel, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function EditQuizs() {
@@ -12,12 +12,33 @@ export default function EditQuizs() {
   const [showADD, setShowADD] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
 
+  const [val, setVal] = useState([]);
+
+  const handleAdd = () => {
+    const abc = [...val, []];
+    setVal(abc);
+  };
+  const handleChane = (onChangeValue, i) => {
+    const inputdata = [...val];
+    inputdata[i] = onChangeValue.target.value;
+    setVal(inputdata);
+  };
+  console.log(val);
+
+  const handleDelete = (i) => {
+    const DeleteVal = [...val];
+    DeleteVal.splice(i, 1);
+    setVal(DeleteVal);
+  };
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const { id } = useParams();
 
   const getQuestion = (id) => {
-    Axios.get(`http://localhost:8080/question/edit-question/${id}`)
+    Axios.get(
+      `https://flru-learning.herokuapp.com/question/edit-question/${id}`
+    )
       .then((res) => {
         setQuestion(res.data);
       })
@@ -66,28 +87,33 @@ export default function EditQuizs() {
                   );
                 }
               )}
-            </div>
-            {/* {question?.questions?.map((item, index) => {
-              return (
-                <>
-                  <div className="BodyEditeQuiz">
-                    <div className="HeadEditeQuiz">
-                      <h1>
-                        {index + 1}. {item.question}
-                      </h1>
+              <Button onClick={() => handleAdd()}>ADD Options</Button>
+              {val.map((data, i) => {
+                return (
+                  <div className="DynamicallyAdd">
+                    <div className="d-flex">
+                      <FloatingLabel
+                        controlId="floatingInput"
+                        label={`options ${i + 1}`}
+                      >
+                        <Form.Control
+                          type="text"
+                          value={data}
+                          onChange={(e) => {
+                            handleChane(e, i);
+                          }}
+                        />
+                      </FloatingLabel>
+                      <Button variant="danger" onClick={() => handleDelete(i)}>
+                        X
+                      </Button>
                     </div>
-                    {item.options.map((item, index) => {
-                      return (
-                        <label>
-                          {index + 1}. {item}
-                        </label>
-                      );
-                    })}
                   </div>
-                </>
-              );
-            })} */}
+                );
+              })}
+            </div>
           </div>
+
           <div className="TabContainer">
             <div className="TabContainerNum">
               <h3>Options</h3>

@@ -26,9 +26,11 @@ export default function Ranking() {
   const [rmax, setRmax] = useState();
 
   const getRank = () => {
-    Axios.get("http://localhost:8080/rankcompares").then((response) => {
-      setRanks(response.data);
-    });
+    Axios.get("https://flru-learning.herokuapp.com/rankcompares").then(
+      (response) => {
+        setRanks(response.data);
+      }
+    );
   };
 
   const dataEditAdd = [
@@ -40,24 +42,22 @@ export default function Ranking() {
   ];
 
   const getEditAdd = () => {
-    Axios.post("http://localhost:8080/users/create-users", dataEditAdd).then(
-      (res) => {
-        swal({
-          icon: "success",
-          title: `SIGN UP `,
-          text: `Thank you, for applying for membership.`,
-        });
-        console.log(res.data);
-      }
-    );
+    Axios.post(
+      "https://flru-learning.herokuapp.com/users/create-users",
+      dataEditAdd
+    ).then((res) => {
+      swal({
+        icon: "success",
+        title: `SIGN UP `,
+        text: `Thank you, for applying for membership.`,
+      });
+      console.log(res.data);
+    });
   };
 
-<<<<<<< HEAD
   const key = JSON.parse(window.localStorage.getItem("UserRole"));
   const history = useNavigate();
 
-=======
->>>>>>> 9ad643e296e0594d3b2fcb803e3eb31610e79e80
   useEffect(() => {
     if (key?.status != "Admin") {
       history("/");
