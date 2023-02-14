@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import "./SingIn_outs.css";
-import { Form, FloatingLabel, Table } from "react-bootstrap";
+import { Form, FloatingLabel, Table, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 export default function SingIn_outs() {
   const [timestamp, setTimestamp] = useState();
@@ -23,6 +24,7 @@ export default function SingIn_outs() {
   const key = JSON.parse(window.localStorage.getItem("UserRole"));
   const history = useNavigate();
   useEffect(() => {
+    getSign();
     if (key?.status != "Admin") {
       history("/");
     }
@@ -31,7 +33,38 @@ export default function SingIn_outs() {
       setDate((data) => new Date().toLocaleDateString());
     }, 1000);
     return () => clearInterval(interval);
-  });
+  }, []);
+
+  const [sign, setSign] = useState([]);
+
+  const handleSign = async () => {
+    await Axios.post(
+      "https://flru-learning.herokuapp.com/Signinout/create-signinout",
+      {
+        user_id: barcode,
+        timestamp: timestamp,
+        status: "SignIn",
+      }
+    )
+      .then((res) => {
+        console.log(res.data);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getSign = async () => {
+    await Axios.get("https://flru-learning.herokuapp.com/Signinout")
+      .then((res) => {
+        console.log(res.data);
+        setSign(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="SingInOutContainer1">
@@ -46,17 +79,28 @@ export default function SingIn_outs() {
         </div>
         <div className="right-sign-show">
           <h3>Sign In & Out</h3>
-          <FloatingLabel
-            controlId="floatingInput"
-            label="Barcode"
-            className="mb-3"
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "centen",
+              alignItems: "center",
+            }}
           >
-            <Form.Control
-              type="text"
-              placeholder="name@example.com"
-              onChange={(e) => setBarcode(e.target.value)}
-            />
-          </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Barcode"
+              className="mb-3"
+            >
+              <Form.Control
+                type="text"
+                placeholder="name@example.com"
+                onChange={(e) => setBarcode(e.target.value)}
+              />
+            </FloatingLabel>
+            <Button onClick={handleSign} className="m-2">
+              Click
+            </Button>
+          </div>
         </div>
       </div>
       <div className="BodyContainer">
@@ -66,18 +110,19 @@ export default function SingIn_outs() {
               <tr className="table-warning">
                 <th></th>
                 <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Status</th>
+                <th>Timestamp</th>
               </tr>
             </thead>
             <tbody>
-              {data.map((item, index) => {
+              {sign?.map((item, index) => {
+                const data = new Date(item.timestamp);
                 return (
                   <tr>
-                    <td>{item.id}</td>
-                    <td>{item.firstname}</td>
-                    <td>{item.lastname}</td>
-                    <td>{item.username}</td>
+                    <th>{index + 1}</th>
+                    <td>{item.user_id}</td>
+                    <td>{item.status}</td>
+                    <td>{data.toUTCString()}</td>
                   </tr>
                 );
               })}

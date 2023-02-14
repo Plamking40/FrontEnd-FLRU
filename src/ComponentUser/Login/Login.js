@@ -53,17 +53,18 @@ export default function Login() {
     console.log(membership);
 
     if (membership === "yes") {
-      Axios.post("http://localhost:8080/users/create-users", dataRegister).then(
-        (res) => {
-          swal({
-            icon: "success",
-            title: `SIGN UP ${userid}`,
-            text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
-          });
-          console.log(res.data);
-          setShowRegister(false);
-        }
-      );
+      Axios.post(
+        "https://flru-learning.herokuapp.com/users/create-users",
+        dataRegister
+      ).then((res) => {
+        swal({
+          icon: "success",
+          title: `SIGN UP ${userid}`,
+          text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
+        });
+        console.log(res.data);
+        setShowRegister(false);
+      });
     } else {
       swal({
         icon: "warning",
@@ -75,7 +76,7 @@ export default function Login() {
 
   const loginUser = () => {
     // console.log(userid + "  " + password);
-    Axios.post("http://localhost:8080/users/login-user", {
+    Axios.post("https://flru-learning.herokuapp.com/users/login-user", {
       user_id: userid,
       password: password,
     })

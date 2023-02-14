@@ -56,7 +56,6 @@ export default function EditQuizs() {
     }
 
     getQuestion(id);
-    console.log(question);
   }, []);
   return (
     <div className="EditQuizsContainer">
@@ -72,7 +71,7 @@ export default function EditQuizs() {
                 {currentQuestion + 1}.{" "}
                 {question?.questions?.[currentQuestion].question}
               </h2>
-              {question?.questions?.[currentQuestion].options.map(
+              {question?.questions?.[currentQuestion].options?.map(
                 (item, index) => {
                   return (
                     <div className="optionsItem">
@@ -117,7 +116,7 @@ export default function EditQuizs() {
           <div className="TabContainer">
             <div className="TabContainerNum">
               <h3>Options</h3>
-              {question.questions?.map((item, index) => {
+              {question?.questions?.map((item, index) => {
                 return (
                   <div
                     className="QuizNum"

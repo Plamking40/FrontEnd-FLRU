@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./homerightbar.css";
 import Navbar from "../Navbar";
 import {
@@ -17,8 +17,11 @@ import {
   Legend,
 } from "recharts";
 import { useNavigate } from "react-router-dom";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 export default function HomeRightbar() {
+  const [value, onChange] = useState(new Date());
   const key = JSON.parse(window.localStorage.getItem("UserRole"));
   const history = useNavigate();
 
@@ -278,14 +281,8 @@ export default function HomeRightbar() {
       <div className="bodyContainer">
         <div className="body-l">
           <div className="BarchatContainer">
-            <p className="DayTitle">Web. 19 October 2022</p>
-            <div className="DayBtnContainer">
-              <button className="DayBtn">Today</button>
-              <button className="DayBtn">Daily</button>
-              <button className="DayBtn">Weekly</button>
-              <button className="DayBtn">Monthly</button>
-              <button className="DayBtn">Semester</button>
-            </div>
+            <p className="DayTitle">{value.toDateString()}</p>
+
             <div className="DatBarChart">
               <BarChart width={730} height={250} data={data1}>
                 <XAxis dataKey="name" />
@@ -310,25 +307,8 @@ export default function HomeRightbar() {
         </div>
 
         <div className="body-r">
-          <div className="OngoingCourseContainer">
-            <p className="OngoingCourseHead">Ongoing Course</p>
-            <div className="nameCourse">
-              <div className="nameCourse1"></div>
-              <p className="nameCourse2">Vocabulary</p>
-              <div className="nameCourse3">
-                <p>Start 11.00 AM</p>
-                <p>End 12.00 AM</p>
-              </div>
-            </div>
-          </div>
           <div className="calendarContainer">
-            <p>October, 2565</p>
-          </div>
-          <div className="UserAlltimeContainer">
-            <p>TatalUser(All time)</p>
-            <p>325</p>
-            <p>Total Courses</p>
-            <p>9</p>
+            <Calendar onChange={onChange} value={value} />
           </div>
         </div>
       </div>
@@ -374,7 +354,8 @@ export default function HomeRightbar() {
             </div>
           </div>
         </div>
-        <div className="MiddleTaskChart">
+
+        {/* <div className="MiddleTaskChart">
           <p className="TaskCretedvsCompletad">
             Task Created vs Task Completed
           </p>
@@ -392,8 +373,9 @@ export default function HomeRightbar() {
             <Line type="monotone" dataKey="Task_Created" stroke="#8884d8" />
             <Line type="monotone" dataKey="Task_Completed" stroke="#82ca9d" />
           </LineChart>
-        </div>
-        <div className="TaskContainer">
+        </div> */}
+
+        {/* <div className="TaskContainer">
           <div className="TaskChart">
             <p className="taskContainertext">Your Team Performance This Week</p>
             <PieChart width={300} height={300}>
@@ -444,7 +426,7 @@ export default function HomeRightbar() {
               <Line type="monotone" dataKey="uv" stroke="#ff7300" />
             </ComposedChart>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

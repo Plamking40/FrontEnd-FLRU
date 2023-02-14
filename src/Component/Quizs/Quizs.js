@@ -39,37 +39,41 @@ export default function Quizs() {
   const handleADDClose = () => setShowADD(false);
   const handleADDShow = () => setShowADD(true);
 
+  const [Quiz, setQuiz] = useState();
+  const [Type, setType] = useState();
+  const [ScoreMax, setScoreMax] = useState();
+  const [EndTime, setEndTime] = useState();
+  const [Total, setTotal] = useState();
+  const [RankType, setRankType] = useState();
+  const [Content, setContent] = useState();
+
   const handleADDSubmit = async () => {
-    const dataRegister = [
+    const dataQuestion = [
       {
-        // user_id: user_id,
-        // password: password,
+        quiz: Quiz,
+        type: Type,
+        score_max: ScoreMax,
+        end_time: EndTime,
+        total: Total,
+        is_active: true,
+        rankType: RankType,
+        content: Content,
+        questions: {},
       },
     ];
-
-    console.log(dataRegister);
-
-    if (dataRegister) {
-      Axios.post(
-        "https://flru-learning.herokuapp.com/users/create-users",
-        dataRegister
-      ).then(async (res) => {
-        await swal({
-          icon: "success",
-          title: `SIGN UP `,
-          text: `Thank you,  for applying for membership.`,
-        });
-        console.log(res.data);
-        setShowADD(false);
-        window.location.reload();
-      });
-    } else {
+    Axios.post(
+      "https://flru-learning.herokuapp.com/question/create-question",
+      dataQuestion
+    ).then(async (res) => {
       await swal({
-        icon: "warning",
-        title: `SIGN UP Error`,
-        text: `Please confirm the conditions for applying for membership.`,
+        icon: "success",
+        title: `SIGN UP `,
+        text: `Thank you, for applying for membership.`,
       });
-    }
+      console.log(res.data);
+
+      window.location.reload();
+    });
   };
 
   return (
@@ -109,91 +113,109 @@ export default function Quizs() {
       <div className="model-box-view">
         <Modal show={showADD} onHide={handleADDClose} size="lg">
           <Modal.Header closeButton>
-            <Modal.Title>ADD USER</Modal.Title>
+            <Modal.Title>ADD Quiz</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
               <Row className="g-2 mb-3">
                 <Col md>
-                  <Form.Floating>
+                  <FloatingLabel
+                    controlId="floatingInput"
+                    label="Quiz"
+                    className="mb-3 mt-3"
+                  >
                     <Form.Control
                       type="text"
-                      placeholder="UserID"
-                      // onChange={(e) => setUser_id(e.target.value)}
+                      placeholder="name@example.com"
+                      onChange={(e) => setQuiz(e.target.value)}
                     />
-                    <label htmlFor="floatingPasswordCustom">UserID</label>
-                  </Form.Floating>
+                  </FloatingLabel>
                 </Col>
                 <Col md>
-                  <Form.Floating>
+                  <FloatingLabel
+                    controlId="floatingInput"
+                    label="Type"
+                    className="mb-3 mt-3"
+                  >
                     <Form.Control
-                      type="password"
-                      placeholder="Password"
-                      // onChange={(e) => setPassword(e.target.value)}
+                      type="text"
+                      placeholder="name@example.com"
+                      onChange={(e) => setType(e.target.value)}
                     />
-                    <label htmlFor="floatingPasswordCustom">Password</label>
-                  </Form.Floating>
+                  </FloatingLabel>
                 </Col>
               </Row>
               <Row className="g-2 mb-3">
                 <Col md>
-                  <Form.Floating>
+                  <FloatingLabel
+                    controlId="floatingInput"
+                    label="Score_max"
+                    className="mb-3 mt-3"
+                  >
                     <Form.Control
-                      type="text"
-                      placeholder="Firstname"
-                      // onChange={(e) => setFirstname(e.target.value)}
+                      type="number"
+                      placeholder="name@example.com"
+                      onChange={(e) => setScoreMax(e.target.value)}
                     />
-                    <label htmlFor="floatingPasswordCustom">Firstname</label>
-                  </Form.Floating>
-                </Col>
-                <Col md>
-                  <Form.Floating>
-                    <Form.Control
-                      type="text"
-                      placeholder="Lastname"
-                      // onChange={(e) => setLastname(e.target.value)}
-                    />
-                    <label htmlFor="floatingPasswordCustom">Lastname</label>
-                  </Form.Floating>
+                  </FloatingLabel>
                 </Col>
                 <Col md>
                   <FloatingLabel
-                    controlId="floatingSelectGrid"
-                    label="Works with selects"
+                    controlId="floatingInput"
+                    label="End_time"
+                    className="mb-3 mt-3"
                   >
-                    <Form.Select
-                      aria-label="Floating label select example"
-                      // onChange={(e) => setStatus(e.target.value)}
-                    >
-                      <option>Open this Select Status</option>
-                      <option value="Student">Student</option>
-                      <option value="Staff">Staff</option>
-                      <option value="Teacher">Teacher</option>
-                      <option value="Admin">Admin</option>
-                    </Form.Select>
+                    <Form.Control
+                      type="number"
+                      placeholder="name@example.com"
+                      onChange={(e) => setEndTime(e.target.value)}
+                    />
+                  </FloatingLabel>
+                </Col>
+                <Col md>
+                  <FloatingLabel
+                    controlId="floatingInput"
+                    label="Totol"
+                    className="mb-3 mt-3"
+                  >
+                    <Form.Control
+                      type="number"
+                      placeholder="name@example.com"
+                      onChange={(e) => setTotal(e.target.value)}
+                    />
                   </FloatingLabel>
                 </Col>
               </Row>
               <Row className="g-2">
                 <Col md>
-                  <Form.Floating>
-                    <Form.Control
-                      type="email"
-                      placeholder="Email Addres"
-                      // onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <label htmlFor="floatingPasswordCustom">Email Addres</label>
-                  </Form.Floating>
+                  <FloatingLabel
+                    controlId="floatingSelect"
+                    label="Rank with selects"
+                  >
+                    <Form.Select
+                      aria-label="Floating label select example"
+                      onChange={(e) => setRankType(e.target.value)}
+                    >
+                      <option>Open this Select Menu</option>
+                      <option value="none">None</option>
+                      <option value="toeic">TOEIC</option>
+                      <option value="crud">CRUD</option>
+                    </Form.Select>
+                  </FloatingLabel>
                 </Col>
                 <Col md>
-                  <Form.Floating>
+                  <FloatingLabel
+                    controlId="floatingTextarea2"
+                    label="Content"
+                    className="mb-3"
+                  >
                     <Form.Control
-                      type="tel"
-                      placeholder="Tel"
-                      // onChange={(e) => setTel(e.target.value)}
+                      as="textarea"
+                      placeholder="Leave a comment here"
+                      style={{ height: "100px" }}
+                      onChange={(e) => setContent(e.target.value)}
                     />
-                    <label htmlFor="floatingPasswordCustom">Tel</label>
-                  </Form.Floating>
+                  </FloatingLabel>
                 </Col>
               </Row>
             </Form>
