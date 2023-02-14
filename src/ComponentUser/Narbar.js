@@ -49,7 +49,10 @@ export default function Narbar() {
   const [password, setPassword] = useState();
   const [firstname, setFirstname] = useState();
   const [lastname, setLastname] = useState();
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState({
+    value: "",
+    isValid: false,
+  });
   const [tel, setTel] = useState();
   const [membership, setMembership] = useState("no");
 
@@ -135,40 +138,66 @@ export default function Narbar() {
         button: false,
       });
     } else {
-      if (membership === "yes") {
-        Axios.post("https://flru-learning.herokuapp.com/users/create-usersv2", {
-          user_id: userid,
-          password: password,
-          firstname: firstname,
-          lastname: lastname,
-          status: "Student",
-          email: email,
-          tel: tel,
-        }).then((res) => {
-          if (res.data.mes == "User Already Exist. Please Login") {
-            swal({
-              icon: "warning",
-              title: `Student ID Again`,
-              text: `Please change the StudentID.`,
-            });
-          } else {
-            swal({
-              icon: "success",
-              title: `SIGN UP ${userid}`,
-              text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
-            });
-            setShowRegister(false);
-          }
-        });
-      } else {
-        swal({
+      if (email.isValid == true) {
+        await swal({
           icon: "warning",
           title: `SIGN UP Error`,
-          text: `Please confirm the conditions for applying for membership.`,
+          text: `Please email.`,
+          button: false,
         });
+      } else {
+        if (membership === "yes") {
+          Axios.post(
+            "https://flru-learning.herokuapp.com/users/create-usersv2",
+            {
+              user_id: userid,
+              password: password,
+              firstname: firstname,
+              lastname: lastname,
+              status: "Student",
+              email: email.value,
+              tel: tel,
+            }
+          ).then((res) => {
+            if (res.data.mes == "User Already Exist. Please Login") {
+              swal({
+                icon: "warning",
+                title: `Student ID Again`,
+                text: `Please change the StudentID.`,
+              });
+            } else {
+              swal({
+                icon: "success",
+                title: `SIGN UP ${userid}`,
+                text: `Thank you, ${firstname}  ${lastname} for applying for membership.`,
+              });
+              setShowRegister(false);
+            }
+          });
+        } else {
+          swal({
+            icon: "warning",
+            title: `SIGN UP Error`,
+            text: `Please confirm the conditions for applying for membership.`,
+          });
+        }
       }
     }
   };
+
+  function ValidateEmail(e) {
+    var validRegex = /^[a-zA-Z0-9]+@g.sut.ac.th$/i;
+    const input = e.target.value.trim().toLowerCase();
+    let isValid = false;
+
+    if (!validRegex.test(input)) {
+      isValid = true;
+    }
+    setEmail({
+      value: input,
+      isValid: isValid,
+    });
+  }
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -417,8 +446,11 @@ export default function Narbar() {
               <input
                 type="email"
                 placeholder="Enter Email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={ValidateEmail}
               />
+              {email.isValid && (
+                <p className="isvalid">กรุณาใส่อีเมลที่ถูกต้อง @g.sut.ac.th</p>
+              )}
             </div>
             <div className="form-item">
               <span class="form-item-icon material-symbols-outlined">call</span>

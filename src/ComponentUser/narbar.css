@@ -279,3 +279,18 @@ h3 span {
   color: rgb(212, 33, 9);
   cursor: pointer;
 }
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-item p {
+  color: red;
+}
+
+.isvalid {
+  margin: 0;
+}
